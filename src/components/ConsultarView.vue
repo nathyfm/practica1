@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        
         <div class="card">
             <div class="card-header">
-                Lista de todos los pacientes en la base de datos
+                Resultados registrados
             </div>
             <div class="card-body">
                 <table class="table">
@@ -22,12 +21,12 @@
                             <td>{{paciente.name}} {{paciente.lastname}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="">
-                                    <router-link :to="{name:'editar', params:{id:paciente.id}}" class="btn btn-info">Editar</router-link>
+                                    <router-link :to="{ name: 'editar', params: { id: paciente.id } }" class="btn btn-info">Editar</router-link>
                                     <button type="button" v-on:click="borrarPaciente(paciente.id)" class="btn btn-danger">Borrar</button>
+                                    <router-link :to="{ name: 'resultados', params: { id: paciente.id } }" class="btn btn-primary">Ver resultados</router-link>
                                 </div>
                             </td>
                         </tr>
-                        
                     </tbody>
                 </table>
             </div>
@@ -35,10 +34,9 @@
                 Copyright: Bioing Company 2023
             </div>
         </div>
-
-
     </div>
 </template>
+
 
 <script>
 export default {
@@ -57,17 +55,13 @@ export default {
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
-                this.pacientes=[]
-                if(typeof datosRespuesta[0].success==='undefined'){
-                    this.pacientes=datosRespuesta;
-                }
-
+                this.pacientes=datosRespuesta.patients;
             })
+
             .catch(console.log)
         },
         borrarPaciente(id){
             console.log(id)
-            //http://localhost/api/?borrar=
             fetch('http://localhost/api/?borrar='+id)
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{

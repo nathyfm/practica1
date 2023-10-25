@@ -37,7 +37,7 @@ export default {
     methods:{
         agregarRegistro(){
             console.log(this.paciente)
-            let datosEnviar={id:null , doc:this.paciente.doc , name:this.paciente.name , lastname:this.paciente.lastname}
+            let datosEnviar={id:null , doc:this.paciente.doc , name:this.paciente.name , lastname:this.paciente.lastname, age:this.paciente.age, gender:this.paciente.gender, eps:this.paciente.eps, tp:this.paciente.tp, ptt:this.paciente.ptt, at_iii:this.paciente.at_iii, tt:this.paciente.tt, fibri:this.paciente.fibri}
             fetch('http://localhost/api/?insertar=1',{
                 method:"POST",
                 body:JSON.stringify(datosEnviar)
