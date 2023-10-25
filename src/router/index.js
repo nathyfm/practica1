@@ -5,8 +5,14 @@ import ConsultarView from '../components/ConsultarView.vue'
 import EditarView from '../components/EditarView.vue'
 import PacientesView from '../components/PacientesView.vue'
 import ResultadosPaciente from '../components/ResultadosPaciente.vue'
+import ResultadosIndividual from '../components/ResultadosIndividual.vue'
 
 const routes = [
+  {
+    path: '/result_ind/:doc',
+    name: 'result_ind',
+    component: ResultadosIndividual
+  },
   {
     path: '/resultados/:id',
     name: 'resultados',

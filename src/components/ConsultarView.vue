@@ -11,6 +11,9 @@
                             <th>ID</th>
                             <th>DOCUMENTO</th>
                             <th>NOMBRE COMPLETO</th>
+                            <th>EDAD</th>
+                            <th>GENERO</th>
+                            <th>EPS</th>
                             <th>ACCIONES</th>
                         </tr>
                     </thead>
@@ -19,6 +22,9 @@
                             <td scope="row">{{paciente.id}}</td>
                             <td>{{paciente.doc}}</td>
                             <td>{{paciente.name}} {{paciente.lastname}}</td>
+                            <td>{{paciente.age}}</td>
+                            <td>{{paciente.gender}}</td>
+                            <td>{{paciente.eps}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="">
                                     <router-link :to="{ name: 'editar', params: { id: paciente.id } }" class="btn btn-info">Editar</router-link>
@@ -66,7 +72,7 @@ export default {
             .then(respuesta=>respuesta.json())
             .then((datosRespuesta)=>{
                 console.log(datosRespuesta)
-                window.location.href="listar"
+                window.location.href="consultar"
 
             })
             .catch(console.log)
