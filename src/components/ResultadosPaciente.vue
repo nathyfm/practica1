@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card">
       <div class="card-header">
-        Resultados del Paciente {{ paciente.name }} {{ paciente.lastname }}
+        Resultados del paciente: {{ paciente.name }} {{ paciente.lastname }}
       </div>
       <div class="card-body">
         <table class="table">

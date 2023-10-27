@@ -43,28 +43,28 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="eps">Tiempo de Protrombina:</label>
-                        <input type="number" id="tp" v-model="nuevoPaciente.tp" class="form-control" required>
+                        <label for="tp">Tiempo de Protrombina:</label>
+                        <input type="number" id="tp" v-model="nuevoPaciente.tp" class="form-control" required step="0.01">
                         <small id="helpId" class="form-text text-muted">Ingrese resultado - TP</small>
                     </div>
                     <div class="form-group">
-                        <label for="eps">Tiempo de Tromboplastina Parcial:</label>
-                        <input type="number" id="ptt" v-model="nuevoPaciente.ptt" class="form-control" required>
+                        <label for="ptt">Tiempo de Tromboplastina Parcial:</label>
+                        <input type="number" id="ptt" v-model="nuevoPaciente.ptt" class="form-control" required step="0.01">
                         <small id="helpId" class="form-text text-muted">Ingrese resultado - PTT</small>
                     </div>
                     <div class="form-group">
-                        <label for="eps">Antitrombina III:</label>
-                        <input type="number" id="at_iii" v-model="nuevoPaciente.at_iii" class="form-control" required>
+                        <label for="at_iii">Antitrombina III:</label>
+                        <input type="number" id="at_iii" v-model="nuevoPaciente.at_iii" class="form-control" required step="0.01">
                         <small id="helpId" class="form-text text-muted">Ingrese resultado - AT III</small>
                     </div>
                     <div class="form-group">
-                        <label for="eps">Tiempo de Trombina:</label>
-                        <input type="number" id="tt" v-model="nuevoPaciente.tt" class="form-control" required>
+                        <label for="tt">Tiempo de Trombina:</label>
+                        <input type="number" id="tt" v-model="nuevoPaciente.tt" class="form-control" required step="0.01">
                         <small id="helpId" class="form-text text-muted">Ingrese resultado - TT</small>
                     </div>
                     <div class="form-group">
-                        <label for="eps">Fibrinógeno:</label>
-                        <input type="number" id="fibri" v-model="nuevoPaciente.fibri" class="form-control" required>
+                        <label for="fibri">Fibrinógeno:</label>
+                        <input type="number" id="fibri" v-model="nuevoPaciente.fibri" class="form-control" required step="0.01">
                         <small id="helpId" class="form-text text-muted">Ingrese resultado fibrinógeno</small>
                     </div>
                     <!-- Al accionar el boton se guarda la info -->
