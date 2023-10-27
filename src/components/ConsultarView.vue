@@ -5,6 +5,10 @@
                 Resultados registrados
             </div>
             <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <router-link :to="{ name: 'agregar' }" class="btn btn-success">Agregar Paciente</router-link>
+                    <button @click="cerrarSesion" class="btn btn-danger">Cerrar Sesión</button>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -27,9 +31,10 @@
                             <td>{{paciente.eps}}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="">
-                                    <router-link :to="{ name: 'editar', params: { id: paciente.id } }" class="btn btn-info">Editar</router-link>
-                                    <button type="button" v-on:click="borrarPaciente(paciente.id)" class="btn btn-danger">Borrar</button>
                                     <router-link :to="{ name: 'resultados', params: { id: paciente.id } }" class="btn btn-primary">Ver resultados</router-link>
+                                    <router-link :to="{ name: 'editar', params: { id: paciente.id } }" class="btn btn-info">Editar</router-link>
+                                    <button type="button" @click="confirmarBorrar(paciente.id)" class="btn btn-danger">Borrar</button>
+                                    <!-- <button type="button" v-on:click="borrarPaciente(paciente.id)" class="btn btn-danger">Borrar</button> -->
                                 </div>
                             </td>
                         </tr>
@@ -55,7 +60,6 @@ export default {
         this.consultarPacientes();
     },
     methods:{
-        //http://localhost/api/
         consultarPacientes(){
             fetch('http://localhost/api/')
             .then(respuesta=>respuesta.json())
@@ -76,8 +80,17 @@ export default {
 
             })
             .catch(console.log)
+        },
+        confirmarBorrar(id) {
+            const confirmacion = window.confirm('¿Seguro que quieres borrar este paciente?');
+            if (confirmacion) {
+                this.borrarPaciente(id);
+            }
+        },
+        cerrarSesion() {
+            this.$router.push({ name: 'home' });
         }
-
+    
     }
 }
 </script>
