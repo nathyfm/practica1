@@ -1,7 +1,15 @@
 <template>
   <div class="hello">
     <h1>{{msg}}</h1>
-    <p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="indented-paragraph">
       Somos su principal elección cuando se trata de cuidar su salud en el ámbito del laboratorio clínico. En nuestras 
       instalaciones, nos destacamos por nuestra meticulosidad en la toma de muestras, lo que garantiza resultados 
       precisos y confiables en una amplia variedad de exámenes médicos.
@@ -18,8 +26,11 @@
    
     <h3>Información de contacto</h3>
     <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">Visítanos</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">Contáctanos</a></li>
+      <li>Dirección: Calle 123 # 23 - 45, Ciudad: Medellín</li>
+      <li>Teléfono: +57 123-456-7890</li>
+      <li>Correo Electrónico: info@biomedlab.com</li>
+      <li>Sitio Web: <a href="https://www.biomedlab.com" target="_blank" rel="noopener">www.biomedlab.com</a></li>
+      <li>Horario de Atención: Lunes a Viernes, 8:00 AM - 6:00 PM</li>
     </ul>
   </div>
 </template>
@@ -49,4 +60,9 @@ li {
 a {
   color: #42b983;
 }
+
+.indented-paragraph {
+  padding-left: 280px; /* Ajusta el valor según tus preferencias */
+}
+
 </style>
