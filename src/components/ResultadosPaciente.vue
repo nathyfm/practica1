@@ -40,7 +40,8 @@ export default {
   },
   methods: {
     cargarResultados() {
-      const idPaciente = this.$route.params.id; // Obtenemos el ID del paciente desde la URL
+      const idPaciente = this.$route.params.id; 
+      console.log(idPaciente)// Obtenemos el ID del paciente desde la URL
       // Realiza una solicitud para cargar los resultados del paciente desde tu API
       fetch(`http://localhost/api/?consultar=${idPaciente}`)
         .then((respuesta) => respuesta.json())
