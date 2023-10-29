@@ -21,6 +21,9 @@
         </table>
       </div>
       <div class="card-footer text-muted">
+      <button @click="volverAtras">Volver Atrás</button>
+      </div>
+      <div class="card-footer text-muted">
         Copyright: Bioing Company 2023
       </div>
     </div>
@@ -39,6 +42,10 @@ export default {
     this.cargarResultados();
   },
   methods: {
+    volverAtras() {
+      // Utiliza el router de Vue Router para volver a la página anterior
+      this.$router.go(-1);
+    },
     cargarResultados() {
       const idPaciente = this.$route.params.id; 
       console.log(idPaciente)// Obtenemos el ID del paciente desde la URL
