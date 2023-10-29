@@ -12,7 +12,8 @@
               <small id="helpId" class="form-text text-muted">Ingrese su número de identificación</small>
             </div>
             <div class="btn-group" role="group" aria-label="">
-              <button type="submit" class="btn btn-success">Consultar</button>
+              <button type="submit" class="btn btn-success" @click="consultarPaciente">Consultar</button>
+            
             </div>
           </form>
         </div>
@@ -27,33 +28,48 @@
   export default {
     data() {
       return {
+        resultados: {},
         paciente: {
           doc: ""
         }
       };
     },
+    
     methods: {
-      consultarRegistro() {
-        console.log(this.paciente);
-        // Realiza una solicitud para verificar si el paciente existe en la base de datos
-        fetch(`http://localhost/api/?consultar=${this.paciente.doc}`, {
-          method: "GET"
-        })
-          .then(respuesta => respuesta.json())
-          .then(datosRespuesta => {
-            if (Array.isArray(datosRespuesta) && datosRespuesta.length > 0) {
-              // El paciente existe, muestra un mensaje o realiza la acción adecuada
-              alert("El paciente existe en la base de datos.");
-              // Aquí puedes redirigir o tomar otras acciones si el paciente existe
-            } else {
-              // El paciente no existe, muestra un mensaje de error
-              alert("El paciente no existe en la base de datos.");
+    
+    consultarPaciente() {
+       // Cédula del paciente que estás buscando
+        const cedulaPaciente = this.paciente.doc.toString();
+        console.log(cedulaPaciente);
+
+        // Realiza una solicitud para obtener todos los pacientes desde tu API
+        fetch("http://localhost/api/")
+          .then((respuesta) => respuesta.json())
+          .then((datosRespuesta) => {
+            if (datosRespuesta.patients && Array.isArray(datosRespuesta.patients)) {
+              const pacientes = datosRespuesta.patients;
+              console.log(pacientes)
+
+              // Busca el paciente con la cédula proporcionada
+              const pacienteEncontrado = pacientes.find((paciente) => paciente.doc === cedulaPaciente);
+              console.log(pacienteEncontrado)
+
+              if (pacienteEncontrado) {
+                // El paciente existe, puedes acceder a su ID
+                const idPaciente = pacienteEncontrado.id;
+                // Realiza cualquier acción que necesites con el ID del paciente
+                console.log(`ID del paciente encontrado: ${idPaciente}`);
+                this.$router.push({ name: 'resultados', params: { id: idPaciente } });
+
+              } else {
+                // El paciente no existe
+                console.log("El paciente no existe en la base de datos.");
+                window.confirm('El paciente no existe en la base de datos.');
+              }
             }
           })
-          .catch(error => {
-            console.error("Error al consultar el registro:", error);
-          });
-      }
+          .catch(console.log);
+      },
     }
   };
   </script>
