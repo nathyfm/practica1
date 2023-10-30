@@ -69,6 +69,9 @@
                     </div>
                     <!-- Al accionar el boton se guarda la info -->
                     <button type="submit" class="btn btn-success">Guardar</button>
+                    <div class="card-footer text-muted">
+                        Al accionar el botón se guarda la info, oprimir "Regresar a registros" para ver la información actualizada.
+                    </div>
                 </form>
             </div>
         </div>
