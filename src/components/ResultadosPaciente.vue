@@ -29,15 +29,15 @@
         </table>
       </div>
       <div class="card-footer text-muted">
-        Valores normales:
-        TP: 11 - 13.5 segundos
-        TPT: 25 - 35 segundos
-        AT III: 80% - 120%
-        TT: 12 - 19 segundos
-        Fibrinógeno: 2 - 4 g/L
+        <strong>Valores normales:</strong><br>
+        <strong>TP:</strong> 11 - 13.5 segundos<br>
+        <strong>TPT:</strong> 25 - 35 segundos<br>
+        <strong>AT III:</strong> 80% - 120%<br>
+        <strong>TT:</strong> 12 - 19 segundos<br>
+        <strong>Fibrinógeno:</strong> 2 - 4 g/L
       </div>
       <div class="card-footer text-muted">
-      <button @click="volverAtras">Volver Atrás</button>
+      <button @click="volverAtras" class="btn btn-info" style="margin-right: 10px;">Regresar</button>
       </div>
       <div class="card-footer text-muted">
         Copyright: Bioing Company 2023
