@@ -3,6 +3,14 @@
     <div class="card">
       <div class="card-header">
         Resultados del paciente: {{ paciente.name }} {{ paciente.lastname }}
+        <br>
+        Documento: {{ paciente.doc }}
+        <br>
+        Edad: {{ paciente.age }}
+        <br>
+        Género: {{ paciente.gender }}
+        <br>
+        EPS: {{ paciente.eps }}
       </div>
       <div class="card-body">
         <table class="table">
@@ -19,6 +27,14 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="card-footer text-muted">
+        Valores normales:
+        TP: 11 - 13.5 segundos
+        TPT: 25 - 35 segundos
+        AT III: 80% - 120%
+        TT: 12 - 19 segundos
+        Fibrinógeno: 2 - 4 g/L
       </div>
       <div class="card-footer text-muted">
       <button @click="volverAtras">Volver Atrás</button>
